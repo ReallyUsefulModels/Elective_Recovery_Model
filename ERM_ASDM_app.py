@@ -13,14 +13,12 @@ st.title('Elective Recovery Model')
 model.clear_last_run()
 
 # Variables
-st.subheader('Slide the Slider to Vary The Proportion of Patients Awaiting Routine Treatment')
-routine_adjustment = st.slider("Routine treatment", 1, 100, 1)
-st.subheader('Slide the Slider to Vary The Proportion of Patients Awaiting Urgent Treatment')
-urgent_adjustment = st.slider("Urgent treatment", 1, 100, 1)
+st.subheader('Slide the Slider to Vary The Percent increase in diagnostic capacity post COVID')
+diagnostic_capacity_increase = st.slider("Percent increase in diagnostic capacity post COVID", 1, 100, 1)
 
 # Edit Stock
-model.add_stock(name='Routine treatment', equation={'nosubscript': str(routine_adjustment)}, x=0, y=0, non_negative=True)
-model.add_stock(name='Urgent treatment', equation={'nosubscript': str(urgent_adjustment)}, x=0, y=0, non_negative=True)
+# model.add_stock(name='Percent increase in diagnostic capacity post COVID', equation={'nosubscript': str(diagnostic_capacity_increase)}, x=0, y=0, non_negative=True)
+model.add_aux(name='Percent increase in diagnostic capacity post COVID', equation={'nosubscript': str(diagnostic_capacity_increase)})
 
 # Run Model
 model.simulate()
@@ -33,5 +31,5 @@ df_backlog = df_outcome[['Total waiting for diagnostics or treatment','Waiting 6
 
 # Then plot
 
-st.subheader('Time Series Of Backlog')
+st.subheader('Number Waiting By Month')
 st.line_chart(df_backlog)
