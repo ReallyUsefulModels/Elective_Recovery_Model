@@ -1,5 +1,7 @@
 
 # Really Useful Models - Elective Recovery Model
+
+# Built using BPTK
     
 import numpy as np
 from scipy.interpolate import interp1d
