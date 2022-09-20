@@ -8,3 +8,5 @@ It is still in development but is starting to get there. If anyone would like to
 The model structure is as below. As you can see it is more complex than the smoking cessation model so if you are new to system dynamics I strongly recommend you start there.
 
 ![Elective_Recovery_Model](https://github.com/ReallyUsefulModels/Elective_Recovery_Model/blob/main/Elective_Recovery_Model.PNG)
+
+To see the working model please go to: https://reallyusefulmodels-elective-recovery-model-erm-asdm-app-kqu8vf.streamlitapp.com/
