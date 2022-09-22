@@ -178,6 +178,8 @@ class Structure(object):
     def __init__(self, subscripts={'default_sub':['default_ele']}, from_xmile=None):
         # debug functionalities
         
+        self.simulate_progress = 0
+
         self.stocks = None
 
         self.n_indentation = 0
@@ -822,10 +824,13 @@ class Structure(object):
             self.visited = dict()
 
             self.update_stocks(self.dt)
+
+            self.simulate_progress = self.current_step / total_steps
         
         # Step 3
 
         self.update_states()
+
         
     def init_stocks(self):
         self.__name_values[self.current_time] = deepcopy(self.__time_slice_values)
