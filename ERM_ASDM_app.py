@@ -41,11 +41,16 @@ model.clear_last_run()
 model.simulate(simulation_time=sim_time, dt=0.25)
 
 # Create the Model
-
 df_outcome = model.export_simulation_result()
 
+@st.cache
+def outcome_gen(df_outcome):
+    df_backlog = df_outcome[['Total waiting for diagnostics or treatment','Waiting 6 to 12mths for treatment','Waiting 12 to 24mths for treatment','Waiting over 24mths for treatment']]
+    return df_backlog
+
+df_backlog = outcome_gen(df_outcome)
+
 df_demand = df_outcome[['Routine treatment', 'Urgent treatment']]
-df_backlog = df_outcome[['Total waiting for diagnostics or treatment','Waiting 6 to 12mths for treatment','Waiting 12 to 24mths for treatment','Waiting over 24mths for treatment']]
 
 # Then plot
 
@@ -53,8 +58,7 @@ st.subheader('Estimated Backlog in Weeks')
 st.line_chart(df_backlog)
 
 if st.checkbox('Show Backlog Dataframe'):
-    chart_data = df_backlog
-    chart_data
+    df_backlog
 
 'Calculating Demand...'
 
