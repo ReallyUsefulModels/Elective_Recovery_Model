@@ -8,6 +8,7 @@ asdm = "*"
 jupyterlab = "*"
 ipykernel = "*"
 plotly = "*"
+streamlit = "*"
 
 [dev-packages]
 
