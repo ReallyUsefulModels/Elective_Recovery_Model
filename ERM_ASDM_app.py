@@ -66,7 +66,7 @@ st.line_chart(df_backlog)
 if st.checkbox('Show Backlog Dataframe'):
     st.write(df_backlog)
 
-'Calculating Demand...'
+'Calculating Demand...' 
 
 # Add a placeholder
 latest_iteration = st.empty()
